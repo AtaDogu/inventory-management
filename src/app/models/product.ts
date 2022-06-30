@@ -4,4 +4,5 @@ export interface Product{
   summary:string;
   type:number;
   description:string;
+
 }
