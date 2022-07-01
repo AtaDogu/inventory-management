@@ -1,3 +1,6 @@
+import { ToastrService } from 'ngx-toastr';
+import { LoginModel } from './../../models/loginModel';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
@@ -9,7 +12,9 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder:FormBuilder,
+    private authService:AuthService,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.createLoginForm()
@@ -24,7 +29,14 @@ export class LoginComponent implements OnInit {
 
   login(){
     if(this.loginForm.valid){
-      console.log(this.loginForm.value)
+      console.log(this.loginForm.value);
+      let LoginModel=Object.assign({},this.loginForm.value)
+      this.authService.login(LoginModel).subscribe(response=>{
+        this.toastrService.info(response.message)
+        localStorage.setItem("token",response.data.token)
+      },responseError=>{
+        this.toastrService.error(responseError.error)
+      })
     }
   }
 

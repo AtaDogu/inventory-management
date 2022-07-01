@@ -1,7 +1,7 @@
 import { ProductService } from './../../services/product.service';
 import { Product } from './../../models/product';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -16,7 +16,8 @@ export class ProductComponent implements OnInit {
 
   constructor(private productService: ProductService,
     private activatedRoute:ActivatedRoute,
-    private toastrService:ToastrService) {}
+    private toastrService:ToastrService,
+    private router:Router) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -30,7 +31,6 @@ export class ProductComponent implements OnInit {
   deleteProduct(product:Product){
     this.productService.delete(product).subscribe(response=>{
     this.toastrService.success(response.message,product.title)
-    console.log(product)
     })
   }
   updateProduct(product:Product){
