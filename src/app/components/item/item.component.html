@@ -1,6 +1,6 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Products</h1>
+    <h1 class="h2">Items</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group me-2">
         <a href="items/add" type="button" class="btn btn-sm btn-outline-secondary">Add</a>
@@ -12,8 +12,8 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="login">Login</a></li>
-          <li><a class="dropdown-item" href="#">Register</a></li>
-          <li><a class="dropdown-item" href="#">Log Out</a></li>
+          <li><a class="dropdown-item" href="register">Register</a></li>
+          <li><a class="dropdown-item" href="logout">Log Out</a></li>
         </ul>
       </div>
     </div>
@@ -37,24 +37,24 @@
       <thead>
         <tr>
           <th scope="col">Id</th>
-          <th scope="col">productId</th>
-          <th scope="col">brandId</th>
-          <th scope="col">supplierId</th>
-          <th scope="col">orderId</th>
-          <th scope="col">sku</th>
-          <th scope="col">mrp</th>
-          <th scope="col">discount</th>
-          <th scope="col">price</th>
-          <th scope="col">quantity</th>
-          <th scope="col">sold</th>
-          <th scope="col">available</th>
-          <th scope="col">defective</th>
-          <th scope="col">createdBy</th>
-          <th scope="col">updatedBy</th>
+          <th scope="col">Product Id</th>
+          <th scope="col">Brand Id</th>
+          <th scope="col">Supplier Id</th>
+          <th scope="col">Order Id</th>
+          <th scope="col">Sku</th>
+          <th scope="col">Mrp</th>
+          <th scope="col">Discount</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Sold</th>
+          <th scope="col">Available</th>
+          <th scope="col">Defective</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Updated By</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let item of items ">
+        <tr *ngFor = "let item of items | filterItemPipe:filterText">
           <td>{{item.id}}</td>
           <td>{{item.productId}}</td>
           <td>{{item.brandId}}</td>

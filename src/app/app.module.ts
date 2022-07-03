@@ -22,7 +22,17 @@ import { RegisterComponent } from './components/register/register.component';
 import { ItemComponent } from './components/item/item.component';
 import { AddressComponent } from './components/address/address.component';
 import { BrandComponent } from './components/brand/brand.component';
-import { CoverComponent } from './components/cover/cover.component'
+import { CoverComponent } from './components/cover/cover.component';
+import { OrderAddComponent } from './components/order/order-add/order-add.component';
+import { AddressAddComponent } from './components/address/address-add/address-add.component';
+import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import { CategoryAddComponent } from './components/category/category-add/category-add.component';
+import { ItemAddComponent } from './components/item/item-add/item-add.component';
+import { FilterOrderPipePipe } from './pipes/filter-order-pipe.pipe';
+import { FilterCategoryPipePipe } from './pipes/filter-category-pipe.pipe';
+import { FilterAddressPipePipe } from './pipes/filter-address-pipe.pipe';
+import { FilterBrandPipePipe } from './pipes/filter-brand-pipe.pipe';
+import { FilterItemPipePipe } from './pipes/filter-item-pipe.pipe'
 
 @NgModule({
   declarations: [
@@ -40,7 +50,17 @@ import { CoverComponent } from './components/cover/cover.component'
     ItemComponent,
     AddressComponent,
     BrandComponent,
-    CoverComponent
+    CoverComponent,
+    OrderAddComponent,
+    AddressAddComponent,
+    BrandAddComponent,
+    CategoryAddComponent,
+    ItemAddComponent,
+    FilterOrderPipePipe,
+    FilterCategoryPipePipe,
+    FilterAddressPipePipe,
+    FilterBrandPipePipe,
+    FilterItemPipePipe
   ],
   imports: [
     BrowserModule,

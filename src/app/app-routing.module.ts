@@ -1,3 +1,7 @@
+import { CategoryAddComponent } from './components/category/category-add/category-add.component';
+import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import { AddressAddComponent } from './components/address/address-add/address-add.component';
+import { OrderAddComponent } from './components/order/order-add/order-add.component';
 import { CoverComponent } from './components/cover/cover.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { OrderComponent } from './components/order/order.component';
@@ -11,6 +15,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { ProductComponent } from './components/product/product.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ItemAddComponent } from './components/item/item-add/item-add.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full", component:CoverComponent},
@@ -22,7 +27,13 @@ const routes: Routes = [
   {path:"addresses",component:AddressComponent},
   {path:"items",component:ItemComponent},
   {path:"orders",component:OrderComponent},
-  {path:"brands",component:BrandComponent}
+  {path:"brands",component:BrandComponent},
+  {path:"orders/add",component:OrderAddComponent},
+  {path:"addresses/add",component:AddressAddComponent},
+  {path:"brands/add",component:BrandAddComponent},
+  {path:"categories/add",component:CategoryAddComponent},
+  {path:"items/add",component:ItemAddComponent},
+  {path:"register",component:RegisterComponent}
 ];
 
 @NgModule({

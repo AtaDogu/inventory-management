@@ -3,7 +3,7 @@
     <h1 class="h2">Brands</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group me-2">
-        <a href="products/add" type="button" class="btn btn-sm btn-outline-secondary">Add</a>
+        <a href="brands/add" type="button" class="btn btn-sm btn-outline-secondary">Add</a>
         <a type="button" class="btn btn-sm btn-outline-secondary">Export</a>
       </div>
       <div class="dropdown">
@@ -12,8 +12,8 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="login">Login</a></li>
-          <li><a class="dropdown-item" href="#">Register</a></li>
-          <li><a class="dropdown-item" href="#">Log Out</a></li>
+          <li><a class="dropdown-item" href="register">Register</a></li>
+          <li><a class="dropdown-item" href="logout">Log Out</a></li>
         </ul>
       </div>
     </div>
@@ -43,7 +43,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let brand of brands ">
+        <tr *ngFor = "let brand of brands | filterBrandPipe:filterText">
           <td>{{brand.id}}</td>
           <td>{{brand.title}}</td>
           <td>{{brand.summary}}</td>

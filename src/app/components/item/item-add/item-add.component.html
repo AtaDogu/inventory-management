@@ -1,0 +1,117 @@
+<main class="col-md-9 mt-5 ms-sm-auto col-lg-10 px-md-4">
+  <div class="row g-7">
+    <div class="col-md-5 mx-5 col-lg-8 order-md-last">
+      <div class="content">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="title">Add Item</h5>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="itemAddForm">
+                <div class="mb-3">
+                  <label for="productId">Product Id</label>
+                  <div class="form-group">
+                    <input type="number" id="productId" formControlName="productId" class="form-control"
+                      placeholder="Product Id" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="brandId">Brand Id</label>
+                  <div class="form-group">
+                    <input type="number" id="brandId" formControlName="brandId" class="form-control" placeholder="Brand Id" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="supplierId">Supplier Id</label>
+                  <div class="form-group">
+                    <input type="number" id="supplierId" formControlName="supplierId" class="form-control"
+                      placeholder="Supplier Id" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="orderId">Order Id</label>
+                  <div class="form-group">
+                    <input type="number" id="orderId" formControlName="orderId" class="form-control"
+                      placeholder="Order Id" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="sku">Sku</label>
+                  <div class="form-group">
+                    <input type="text" id="sku" formControlName="sku" class="form-control"
+                      placeholder="Sku" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="mrp">Mrp</label>
+                  <div class="form-group">
+                    <input type="number" id="mrp" formControlName="mrp" class="form-control" placeholder="Mrp" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="discount">Discount</label>
+                  <div class="form-group">
+                    <input type="number" id="discount" formControlName="discount" class="form-control"
+                      placeholder="Discount" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="price">Price</label>
+                  <div class="form-group">
+                    <input type="number" id="price" formControlName="price" class="form-control" placeholder="Price" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="quantity">Quantity</label>
+                  <div class="form-group">
+                    <input type="number" id="quantity" formControlName="quantity" class="form-control" placeholder="Quantity" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="sold">Sold</label>
+                  <div class="form-group">
+                    <input type="number" id="sold" formControlName="sold" class="form-control"
+                      placeholder="Sold" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="available">Available</label>
+                  <div class="form-group">
+                    <input type="number" id="available" formControlName="available" class="form-control"
+                      placeholder="Available" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="defective">Defective</label>
+                  <div class="form-group">
+                    <input type="number" id="defective" formControlName="defective" class="form-control"
+                      placeholder="Defective" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="createdBy">Created By</label>
+                  <div class="form-group">
+                    <input type="number" id="createdBy" formControlName="createdBy" class="form-control"
+                      placeholder="Created By" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="updatedBy">Updated By</label>
+                  <div class="form-group">
+                    <input type="number" id="updatedBy" formControlName="updatedBy" class="form-control"
+                      placeholder="Updated By" />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-fill btn-primary" (click)="add()">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+

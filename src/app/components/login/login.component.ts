@@ -3,6 +3,7 @@ import { LoginModel } from './../../models/loginModel';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   constructor(private formBuilder:FormBuilder,
     private authService:AuthService,
-    private toastrService:ToastrService) { }
+    private toastrService:ToastrService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.createLoginForm()
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(LoginModel).subscribe(response=>{
         this.toastrService.info(response.message)
         localStorage.setItem("token",response.data.token)
+        this.router.navigate([""]);
       },responseError=>{
         this.toastrService.error(responseError.error)
       })

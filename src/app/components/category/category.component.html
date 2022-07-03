@@ -12,11 +12,18 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="login">Login</a></li>
-          <li><a class="dropdown-item" href="#">Register</a></li>
-          <li><a class="dropdown-item" href="#">Log Out</a></li>
+          <li><a class="dropdown-item" href="register">Register</a></li>
+          <li><a class="dropdown-item" href="logout">Log Out</a></li>
         </ul>
       </div>
     </div>
+  </div>
+  <div class="mb-3">
+    <label for="filterText" class="form-label">Search Category</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="search">
+  </div>
+  <div>
+    {{filterText}}
   </div>
 
    <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
@@ -37,13 +44,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let category of categories">
+        <tr *ngFor = "let category of categories | filterCategoryPipe:filterText">
           <td>{{category.id}}</td>
           <td>{{category.parentId}}</td>
           <td>{{category.title}}</td>
           <td>{{category.metaTitle}}</td>
           <td>{{category.slug}}</td>
           <td>{{category.description}}</td>
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button (click)="delete(category)" type="button" class="btn btn-danger">Delete</button>
+            <button (click)="update(category)" type="button" class="btn btn-success">Update</button>
+          </div>
         </tr>
 
        </tbody>
