@@ -7,7 +7,8 @@
 
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link mx-2 px-3" href="auths/logout">Sign out</a>
+      <a *ngIf="isAuthenticated()==false" type="button" class="nav-link mx-2 px-3" routerLink="login">Sign In</a>
+      <a *ngIf="isAuthenticated()==true" type="button" class="nav-link mx-2 px-3" (click)="logOut()" href="">Sign Out</a>
     </div>
   </div>
 </header>

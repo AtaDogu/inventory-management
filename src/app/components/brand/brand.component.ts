@@ -38,5 +38,12 @@ export class BrandComponent implements OnInit {
     this.toastrService.success("Updated",brand.title)
     console.log(brand)
   }
+  isAuthenticated(){
+    if(localStorage.getItem("token")){
+      return true
+    }else{
+      return false;
+    }
+  }
 
 }

@@ -3,18 +3,7 @@
     <h1 class="h2">Brands</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group me-2">
-        <a href="brands/add" type="button" class="btn btn-sm btn-outline-secondary">Add</a>
-        <a type="button" class="btn btn-sm btn-outline-secondary">Export</a>
-      </div>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          User
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="login">Login</a></li>
-          <li><a class="dropdown-item" href="register">Register</a></li>
-          <li><a class="dropdown-item" href="logout">Log Out</a></li>
-        </ul>
+        <a href="brands/add" type="button" class="btn btn-sm btn-outline-secondary">Add Brand</a>
       </div>
     </div>
   </div>
@@ -23,8 +12,8 @@
     <label for="filterText" class="form-label">Search Brand</label>
     <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="search">
   </div>
-  <div>
-{{filterText}}
+  <div *ngIf="filterText.length>1">
+   You Searched {{filterText}}
   </div>
 
    <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
@@ -48,7 +37,7 @@
           <td>{{brand.title}}</td>
           <td>{{brand.summary}}</td>
           <td>{{brand.description}}</td>
-          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <div *ngIf="isAuthenticated()==true" class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button (click)="delete(brand)" type="button" class="btn btn-danger">Delete</button>
             <button (click)="update(brand)" type="button" class="btn btn-success">Update</button>
           </div>

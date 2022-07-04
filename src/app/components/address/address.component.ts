@@ -46,4 +46,11 @@ export class AddressComponent implements OnInit {
       console.log(address);
     });
   }
+  isAuthenticated(){
+    if(localStorage.getItem("token")){
+      return true
+    }else{
+      return false;
+    }
+  }
 }

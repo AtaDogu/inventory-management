@@ -38,5 +38,12 @@ export class CategoryComponent implements OnInit {
     this.toastrService.success("Updated",category.title)
     console.log(category)
   }
+  isAuthenticated(){
+    if(localStorage.getItem("token")){
+      return true
+    }else{
+      return false;
+    }
+  }
 
 }

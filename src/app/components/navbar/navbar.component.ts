@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
+
+  }
+
+  isAuthenticated(){
+    if(localStorage.getItem("token")){
+      return true
+    }else{
+      return false;
+    }
+  }
+
+  logOut(){
+    this.authService.logOut()
   }
 
 }

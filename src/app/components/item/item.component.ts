@@ -38,5 +38,12 @@ export class ItemComponent implements OnInit {
     this.toastrService.success("Updated",item.sku)
     console.log(item)
   }
+  isAuthenticated(){
+    if(localStorage.getItem("token")){
+      return true
+    }else{
+      return false;
+    }
+  }
 
 }

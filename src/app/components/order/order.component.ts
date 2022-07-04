@@ -38,5 +38,12 @@ export class OrderComponent implements OnInit {
     this.toastrService.success("Updated",order.description)
     console.log(order)
   }
+  isAuthenticated(){
+    if(localStorage.getItem("token")){
+      return true
+    }else{
+      return false;
+    }
+  }
 
 }

@@ -6,3 +6,7 @@ body {
   width: 16px;
   height: 16px;
 }
+.btn-outline-secondary {
+  font-size: 1.1rem;
+}
+

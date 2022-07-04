@@ -13,6 +13,7 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
   dataLoaded=false;
   filterText="";
+  selectedProduct:string;
 
   constructor(private productService: ProductService,
     private activatedRoute:ActivatedRoute,
@@ -29,12 +30,27 @@ export class ProductComponent implements OnInit {
     })
   }
   deleteProduct(product:Product){
-    this.productService.delete(product).subscribe(response=>{
-    this.toastrService.success(response.message,product.title)
-    })
+    this.products=this.products.filter(p=>p !== product)
+    this.productService.delete(product).subscribe((response)=>{
+      this.toastrService.success(response.message,product.title)
+    }
+    )
   }
   updateProduct(product:Product){
     this.toastrService.success("Updated",product.title)
     console.log(product)
   }
+
+  isAuthenticated(){
+    if(localStorage.getItem("token")){
+      return true
+    }else{
+      return false;
+    }
+  }
+  getSelected(product:Product):boolean{
+    return product.title===this.selectedProduct;
+  }
+
+
 }

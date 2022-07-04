@@ -3,18 +3,7 @@
     <h1 class="h2">Items</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group me-2">
-        <a href="items/add" type="button" class="btn btn-sm btn-outline-secondary">Add</a>
-        <a type="button" class="btn btn-sm btn-outline-secondary">Export</a>
-      </div>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          User
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="login">Login</a></li>
-          <li><a class="dropdown-item" href="register">Register</a></li>
-          <li><a class="dropdown-item" href="logout">Log Out</a></li>
-        </ul>
+        <a href="items/add" type="button" class="btn btn-sm btn-outline-secondary">Add Item</a>
       </div>
     </div>
   </div>
@@ -70,7 +59,7 @@
           <td>{{item.defective}}</td>
           <td>{{item.createdBy}}</td>
           <td>{{item.updatedBy}}</td>
-          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <div *ngIf="isAuthenticated()==true" class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button (click)="delete(item)" type="button" class="btn btn-danger">Delete</button>
             <button (click)="update(item)" type="button" class="btn btn-success">Update</button>
           </div>

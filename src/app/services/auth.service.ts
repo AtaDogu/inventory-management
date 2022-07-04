@@ -12,6 +12,8 @@ import { RegisterModel } from '../models/registerModel';
 export class AuthService {
 
   apiUrl = 'https://localhost:7050/api/auths/';
+
+
   constructor(private httpClient: HttpClient) {}
 
   login(loginModel:LoginModel){
@@ -27,5 +29,9 @@ export class AuthService {
   }
   register(registerModel:RegisterModel){
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
+  }
+
+  logOut(){
+    localStorage.removeItem("token")
   }
 }

@@ -28,11 +28,11 @@ const routes: Routes = [
   {path:"items",component:ItemComponent},
   {path:"orders",component:OrderComponent},
   {path:"brands",component:BrandComponent},
-  {path:"orders/add",component:OrderAddComponent},
-  {path:"addresses/add",component:AddressAddComponent},
-  {path:"brands/add",component:BrandAddComponent},
-  {path:"categories/add",component:CategoryAddComponent},
-  {path:"items/add",component:ItemAddComponent},
+  {path:"orders/add",component:OrderAddComponent,canActivate:[LoginGuard]},
+  {path:"addresses/add",component:AddressAddComponent,canActivate:[LoginGuard]},
+  {path:"brands/add",component:BrandAddComponent,canActivate:[LoginGuard]},
+  {path:"categories/add",component:CategoryAddComponent,canActivate:[LoginGuard]},
+  {path:"items/add",component:ItemAddComponent,canActivate:[LoginGuard]},
   {path:"register",component:RegisterComponent}
 ];
 
