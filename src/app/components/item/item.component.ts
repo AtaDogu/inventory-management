@@ -14,6 +14,7 @@ export class ItemComponent implements OnInit {
   items: Item[] = [];
   dataLoaded=false;
   filterText="";
+  selectedItem:number;
 
   constructor(private itemService: ItemService,
     private activatedRoute:ActivatedRoute,
@@ -30,6 +31,7 @@ export class ItemComponent implements OnInit {
     })
   }
   delete(item:Item){
+    this.items=this.items.filter(i=>i !== item)
     this.itemService.delete(item).subscribe(response=>{
     this.toastrService.success(response.message,item.sku)
     })
@@ -44,6 +46,9 @@ export class ItemComponent implements OnInit {
     }else{
       return false;
     }
+  }
+  getSelected(item:Item):boolean{
+    return item.id===this.selectedItem;
   }
 
 }

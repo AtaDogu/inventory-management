@@ -32,7 +32,8 @@ import { FilterOrderPipePipe } from './pipes/filter-order-pipe.pipe';
 import { FilterCategoryPipePipe } from './pipes/filter-category-pipe.pipe';
 import { FilterAddressPipePipe } from './pipes/filter-address-pipe.pipe';
 import { FilterBrandPipePipe } from './pipes/filter-brand-pipe.pipe';
-import { FilterItemPipePipe } from './pipes/filter-item-pipe.pipe'
+import { FilterItemPipePipe } from './pipes/filter-item-pipe.pipe';
+import { ProductUpdateComponent } from './components/product/product-update/product-update.component'
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { FilterItemPipePipe } from './pipes/filter-item-pipe.pipe'
     FilterCategoryPipePipe,
     FilterAddressPipePipe,
     FilterBrandPipePipe,
-    FilterItemPipePipe
+    FilterItemPipePipe,
+    ProductUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ export class AddressComponent implements OnInit {
   addresses: Address[] = [];
   dataLoaded = false;
   filterText = '';
+  selectedAddress:number;
   constructor(
     private addressService: AddressService,
     private activatedRoute: ActivatedRoute,
@@ -30,6 +31,7 @@ export class AddressComponent implements OnInit {
     });
   }
   delete(address: Address) {
+    this.addresses=this.addresses.filter(a=>a !== address)
     this.addressService.delete(address).subscribe((response) => {
       this.toastrService.success(
         response.message,
@@ -52,5 +54,8 @@ export class AddressComponent implements OnInit {
     }else{
       return false;
     }
+  }
+  getSelected(address:Address):boolean{
+    return address.id===this.selectedAddress;
   }
 }

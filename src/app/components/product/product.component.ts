@@ -1,3 +1,4 @@
+import { SingleResponseModel } from './../../models/singleResponseModel';
 import { ProductService } from './../../services/product.service';
 import { Product } from './../../models/product';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,8 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
   dataLoaded=false;
   filterText="";
-  selectedProduct:string;
+  selectedProduct:number;
+  selected:Product;
 
   constructor(private productService: ProductService,
     private activatedRoute:ActivatedRoute,
@@ -36,8 +38,8 @@ export class ProductComponent implements OnInit {
     }
     )
   }
-  updateProduct(product:Product){
-    this.toastrService.success("Updated",product.title)
+  update(product:Product){
+    this.selected===product
     console.log(product)
   }
 
@@ -49,7 +51,7 @@ export class ProductComponent implements OnInit {
     }
   }
   getSelected(product:Product):boolean{
-    return product.title===this.selectedProduct;
+    return product.id===this.selectedProduct;
   }
 
 

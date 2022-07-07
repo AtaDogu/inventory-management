@@ -40,10 +40,13 @@
           <th scope="col">Defective</th>
           <th scope="col">Created By</th>
           <th scope="col">Updated By</th>
+          <th style="width:150px ;"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let item of items | filterItemPipe:filterText">
+        <tr *ngFor = "let item of items | filterItemPipe:filterText" (mouseover)="selectedItem=item.id"
+        (mouseleave)="selectedItem=0"
+        [class.bg-info]="getSelected(item)">
           <td>{{item.id}}</td>
           <td>{{item.productId}}</td>
           <td>{{item.brandId}}</td>
@@ -61,7 +64,7 @@
           <td>{{item.updatedBy}}</td>
           <div *ngIf="isAuthenticated()==true" class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button (click)="delete(item)" type="button" class="btn btn-danger">Delete</button>
-            <button (click)="update(item)" type="button" class="btn btn-success">Update</button>
+            <button (click)="update(item)" type="button" class="btn btn-success mx-2">Update</button>
           </div>
         </tr>
 

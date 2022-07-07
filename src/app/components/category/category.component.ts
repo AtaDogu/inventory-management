@@ -13,6 +13,7 @@ export class CategoryComponent implements OnInit {
   categories:Category[]=[];
   dataLoaded=false;
   filterText="";
+  selectedCategory:number;
   constructor(private categoryService:CategoryService,
     private activatedRoute:ActivatedRoute,
     private toastrService:ToastrService,
@@ -30,6 +31,7 @@ export class CategoryComponent implements OnInit {
   }
 
   delete(category:Category){
+    this.categories=this.categories.filter(c=>c !== category)
     this.categoryService.delete(category).subscribe(response=>{
     this.toastrService.success(response.message,category.title)
     })
@@ -44,6 +46,9 @@ export class CategoryComponent implements OnInit {
     }else{
       return false;
     }
+  }
+  getSelected(category:Category):boolean{
+    return category.id===this.selectedCategory;
   }
 
 }

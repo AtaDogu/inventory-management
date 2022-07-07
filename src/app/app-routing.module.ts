@@ -16,12 +16,14 @@ import { ProductComponent } from './components/product/product.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ItemAddComponent } from './components/item/item-add/item-add.component';
+import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full", component:CoverComponent},
   {path:"products",pathMatch:"full",component:ProductComponent},
   {path:"categories",pathMatch:"full",component:CategoryComponent},
   {path:"products/add", component:ProductAddComponent,canActivate:[LoginGuard]},
+  {path:"products/update", component:ProductUpdateComponent,canActivate:[LoginGuard]},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"addresses",component:AddressComponent},

@@ -39,8 +39,8 @@
       </thead>
       <tbody>
         <tr *ngFor = "let product of products | filterPipe:filterText"
-        (mouseover)="selectedProduct=product.title"
-        (mouseleave)="selectedProduct='(None)'"
+        (mouseover)="selectedProduct=product.id"
+        (mouseleave)="selectedProduct=0"
         [class.bg-info]="getSelected(product)">
           <td>{{product.id}}</td>
           <td>{{product.title}}</td>
@@ -49,7 +49,7 @@
           <td>{{product.description}}</td>
           <div *ngIf="isAuthenticated()==true" class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button  (click)="deleteProduct(product)" type="button" class="btn btn-danger">Delete</button>
-            <button (click)="updateProduct(product)" type="button" class="btn btn-success mx-2">Update</button>
+            <button (click)="update(product)" type="button" class="btn btn-success mx-2">Update</button>
           </div>
        </tbody>
     </table>

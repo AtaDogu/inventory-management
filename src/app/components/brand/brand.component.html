@@ -29,17 +29,20 @@
           <th scope="col">Title</th>
           <th scope="col">Summary</th>
           <th scope="col">Description</th>
+          <th style="width:150px ;"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let brand of brands | filterBrandPipe:filterText">
+        <tr *ngFor = "let brand of brands | filterBrandPipe:filterText" (mouseover)="selectedBrand=brand.id"
+        (mouseleave)="selectedBrand=0"
+        [class.bg-info]="getSelected(brand)">
           <td>{{brand.id}}</td>
           <td>{{brand.title}}</td>
           <td>{{brand.summary}}</td>
           <td>{{brand.description}}</td>
           <div *ngIf="isAuthenticated()==true" class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button (click)="delete(brand)" type="button" class="btn btn-danger">Delete</button>
-            <button (click)="update(brand)" type="button" class="btn btn-success">Update</button>
+            <button (click)="update(brand)" type="button" class="btn btn-success mx-2">Update</button>
           </div>
         </tr>
 

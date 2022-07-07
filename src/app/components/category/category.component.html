@@ -30,10 +30,13 @@
           <th scope="col">Meta Title</th>
           <th scope="col">Slug</th>
           <th scope="col">Description</th>
+          <th style="width:150px ;"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let category of categories | filterCategoryPipe:filterText">
+        <tr *ngFor = "let category of categories | filterCategoryPipe:filterText" (mouseover)="selectedCategory=category.id"
+        (mouseleave)="selectedCategory=0"
+        [class.bg-info]="getSelected(category)">
           <td>{{category.id}}</td>
           <td>{{category.parentId}}</td>
           <td>{{category.title}}</td>
@@ -42,7 +45,7 @@
           <td>{{category.description}}</td>
           <div *ngIf="isAuthenticated()==true" class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button (click)="delete(category)" type="button" class="btn btn-danger">Delete</button>
-            <button (click)="update(category)" type="button" class="btn btn-success">Update</button>
+            <button (click)="update(category)" type="button" class="btn btn-success mx-2">Update</button>
           </div>
         </tr>
 

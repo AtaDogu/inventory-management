@@ -33,10 +33,13 @@
           <th scope="col">City</th>
           <th scope="col">Province</th>
           <th scope="col">Country</th>
+          <th style="width:150px ;"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let address of addresses | filterAddressPipe:filterText ">
+        <tr *ngFor = "let address of addresses | filterAddressPipe:filterText " (mouseover)="selectedAddress=address.id"
+        (mouseleave)="selectedAddress=0"
+        [class.bg-info]="getSelected(address)">
           <td>{{address.id}}</td>
           <td>{{address.firstName}}</td>
           <td>{{address.lastName}}</td>
@@ -47,7 +50,7 @@
           <td>{{address.country}}</td>
           <div *ngIf="isAuthenticated()==true" class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button (click)="delete(address)" type="button" class="btn btn-danger">Delete</button>
-            <button (click)="update(address)" type="button" class="btn btn-success">Update</button>
+            <button (click)="update(address)" type="button" class="btn btn-success mx-2">Update</button>
           </div>
         </tr>
        </tbody>

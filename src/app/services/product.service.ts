@@ -26,5 +26,9 @@ export class ProductService {
     return this.httpClient.post<ResponseModel>(this.apiUrl+"products/delete",product)
   }
 
+  update(product:Product):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"products/update",product)
+  }
+
 
 }
